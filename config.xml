@@ -1,26 +1,34 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.jay.ias" version="1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets"
+	xmlns:gap="http://phonegap.com/ns/1.0"
+	xmlns:android   = "http://schemas.android.com/apk/res/android"
+	id="com.jay.ias" version="1.0.0">
   <name>iAs</name>
-  <description>Hello World sample application that responds to the deviceready event.</description>
-  <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
-  <content src="index.html"/>
+  <description>Personal assistant.</description>
+  <author email="cj-sssy@163.com" href="http://artemis.daoapp.io">Jay Christopher</author>
   
-  <preference name='phonegap-version' value='cli-5.1.1' />
-  
+  <content src="index.html"/>  
+  <preference name='phonegap-version' value='cli-5.1.1' />  
   <preference name="permissions" value="none"/>
-  <preference name="orientation" value="default"/>
-  <preference name="target-device" value="universal"/>
-  <preference name="fullscreen" value="true"/>
+  <preference name="orientation" value="default"/><!--横屏竖屏：landscape portrait-->
+  <preference name="fullscreen" value="false"/><!--是否隐藏状态栏-->
+  
   <preference name="webviewbounce" value="true"/>
-  <preference name="prerendered-icon" value="true"/>
   <preference name="stay-in-webview" value="false"/>
   <preference name="ios-statusbarstyle" value="black-opaque"/>
-  <preference name="detect-data-types" value="true"/>
-  <preference name="exit-on-suspend" value="false"/>
   <preference name="show-splash-screen-spinner" value="true"/>
   <preference name="auto-hide-splash-screen" value="true"/>
   <preference name="disable-cursor" value="false"/>
-  <preference name="android-minSdkVersion" value="7"/>
-  <preference name="android-installLocation" value="auto"/>
+  
+  <!--Only IOS-->
+  <preference name="target-device" value="universal"/><!--指定特定设备：handset tablet universal-->
+  <preference name="prerendered-icon" value="true"/>
+  <preference name="exit-on-suspend" value="false"/>
+  <preference name="detect-data-types" value="true"/>
+  
+  <!--Only Android-->
+  <preference name="android-minSdkVersion" value="10"/>
+  <preference name="android-targetSdkVersion" value="22"/>
+  <preference name="android-installLocation" value="auto"/><!--安装位置：auto internalOnly preferExternal-->
   
   <gap:plugin name="org.apache.cordova.dialogs"/>
   <gap:plugin name="org.apache.cordova.console"/>
@@ -67,14 +75,17 @@
   <allow-intent href="geo:*"/>
 
   <!-- for Android -->
-  <platform name="android">
+  <gap:platform name="android">
     <allow-intent href="market:*"/>
-  </platform>
+	<preference name="permissions" value="android.permission.ACCESS_COARSE_LOCATION"/>
+	<preference name="permissions" value="android.permission.ACCESS_FINE_LOCATION"/>
+	<preference name="permissions" value="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+  </gap:platform>
 
   <!-- for iOS -->
-  <platform name="ios">
+  <gap:platform name="ios">
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
-  </platform>
+  </gap:platform>
 
 </widget>
