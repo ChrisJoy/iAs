@@ -12,7 +12,7 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="22" tools:overrideLibrary="org.apache.cordova" />
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="22" tools:overrideLibrary="org.apache.cordova" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>
